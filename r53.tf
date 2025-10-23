@@ -8,9 +8,9 @@ resource "aws_route53_record" "roboshop" {
   allow_overwrite = true
 }
 
-locals {
-  frontend_index = index(var.ec2, "frontend")
-}
+# locals {
+#   frontend_index = index(var.ec2, "frontend")
+# }
 
 # resource "aws_route53_record" "frontend_root" {
 #   zone_id = var.zone_id
