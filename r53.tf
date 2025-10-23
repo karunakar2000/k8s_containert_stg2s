@@ -25,4 +25,4 @@ resource "aws_route53_record" "roboshop" {
 # name = var.domain_name → creates record for the root domain (dso86s.xyz), not for a subdomain.
 # frontend_index = index(var.ec2, "frontend") → dynamically finds which instance is “frontend”.
 # records = [aws_instance.terraform[local.frontend_index].public_ip] → uses that instance’s public IP.
-# allow_overwrite = true → ensures Terraform can update the record if the IP changes.
+allow_overwrite = true → ensures Terraform can update the record if the IP changes.
