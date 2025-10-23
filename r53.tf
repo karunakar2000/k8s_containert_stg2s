@@ -12,14 +12,14 @@ locals {
   frontend_index = index(var.ec2, "frontend")
 }
 
-resource "aws_route53_record" "frontend_root" {
-  zone_id = var.zone_id
-  name    = var.domain_name     # naked domain -> dso86s.xyz
-  type    = "A"
-  ttl     = 1
-  records = [aws_instance.terraform[local.frontend_index].public_ip]
-  allow_overwrite = true
-}
+# resource "aws_route53_record" "frontend_root" {
+#   zone_id = var.zone_id
+#   name    = var.domain_name     # naked domain -> dso86s.xyz
+#   type    = "A"
+#   ttl     = 1
+#   records = [aws_instance.terraform[local.frontend_index].public_ip]
+#   allow_overwrite = true
+# }
 
 
 # name = var.domain_name → creates record for the root domain (dso86s.xyz), not for a subdomain.
