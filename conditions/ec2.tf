@@ -1,9 +1,9 @@
 resource "aws_instance" "terraform" {
-    ami = data.aws_ami.devsecops.id
-    instance_type = "t3.micro"
-    vpc_security_group_ids = [aws_security_group.tf_sg_all.id]
+  ami                    = "ami-0dfc569a8686b9320"
+  instance_type          = var.environment == "dev" ? "t3.micro" : "t3.large"
+  vpc_security_group_ids = [aws_security_group.tf_sg_all.id]
 
-   tags = {
+  tags = {
     Name      = "terraform"
     Terraform = "true"
   }
