@@ -1,8 +1,8 @@
 resource "aws_instance" "terraform" {
-  count = 5
-  ami                    = "ami-0dfc569a8686b9320"
-  instance_type          = "t3.micro"
-  vpc_security_group_ids = [aws_security_group.tf_sg_all.id]
+    count = length(var.ec2)
+    ami = "ami-0dfc569a8686b9320"
+    instance_type = "t3.micro"
+    vpc_security_group_ids = [aws_security_group.tf_sg_all.id]
 
   tags = {
       Name      = var.ec2[count.index]

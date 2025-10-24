@@ -1,5 +1,5 @@
 resource "aws_route53_record" "roboshop" {
-  count = 5
+  count = length(var.ec2)
   zone_id = "${var.zone_id}"
   name    = "${var.ec2[count.index]}.${var.domain_name}" # mongodb.dso86s.xyz
   type    = "A"
